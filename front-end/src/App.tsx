@@ -20,6 +20,7 @@ function App() {
 
   return (
     <div className={`${std.bgColour} ${std.fontColour} flex flex-col h-screen `}>
+		<title>Transcendence</title>
       <Header {...std}>
         <BrowserRouter>
           <Routes>

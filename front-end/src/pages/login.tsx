@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Box } from "../components/box";
 import { Input } from "../components/input";
 import type { comumValues } from "../types";
-import { Mail, Lock, Check } from "lucide-react";
+import { Mail, Lock, Check, Eye, EyeClosed } from "lucide-react";
 import { useState } from "react";
 
 export function Login(props: comumValues) {
@@ -10,6 +10,8 @@ export function Login(props: comumValues) {
     "flex items-center bg-slate-200 gap-4 p-2 shadow-md";
   const navigate = useNavigate();
   const [check, setCheck] = useState<string>("bg-slate-200");
+  const [seePass, setSeePass] = useState<boolean>(false);
+  const [pass, setPass] = useState<string>("password");
 
   return (
     <div className="flex flex-col h-screen p-4">
@@ -35,7 +37,14 @@ export function Login(props: comumValues) {
                 {...props}
                 className="h-20 flex-1"
                 placeholder="Password"
+				type={pass}
               />
+			  <button onClick={() => {
+				setSeePass(seePass ? false : true);
+				setPass(pass === "password" ? "text" : "password");
+			}}>
+				{seePass === true ? <Eye/> : <EyeClosed/>}
+			  </button>
             </div>
             <button className="flex gap-4 underline" onClick={() => {setCheck(check === "bg-slate-200" ? props.buttonColour : "bg-slate-200")}}>
               <div className={`h-5 w-5 ${check} flex items-center justify-center`}>
