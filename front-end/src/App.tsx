@@ -3,8 +3,8 @@ import { Home } from "./pages/home";
 import { Login } from "./pages/login";
 import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
 import type { comumValues } from "./types";
-import { Header } from "./pages/header";
-import { SignUp } from "./pages/signUo";
+import { Header } from "./components/header";
+import { SignUp } from "./pages/signUp";
 
 function App() {
   const std: comumValues = {
