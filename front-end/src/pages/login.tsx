@@ -1,34 +1,58 @@
+import { useNavigate } from "react-router-dom";
 import { Box } from "../components/box";
 import { Input } from "../components/input";
 import type { comumValues } from "../types";
-import { Mail, Lock } from "lucide-react";
+import { Mail, Lock, Check } from "lucide-react";
+import { useState } from "react";
 
 export function Login(props: comumValues) {
-	const inputCuston: string = "flex items-center bg-slate-200 gap-4 p-2 shadow-md";
+  const inputCuston: string =
+    "flex items-center bg-slate-200 gap-4 p-2 shadow-md";
+  const navigate = useNavigate();
+  const [check, setCheck] = useState<string>("bg-slate-200");
 
   return (
     <div className="flex flex-col h-screen p-4">
       <div className={`${props.center} flex-1`}>
-		<Box {...props} className="w-3/12 h-3/4 p-4 gap-20 text-black">
-          <h1 className={`${props.titleFormat} ${props.center} text-black relative top-10`}>Login</h1>
-		  <div className="relative flex flex-col gap-4 p-4">
-			<div className={inputCuston}>
-				<Mail className="text-gray-500 w-15 h-15"/>
-				<Input {...props} className="h-20 flex-1" placeholder="Email address"/>
+        <Box {...props} className="w-3/12 h-3/4 p-4 gap-20 text-black">
+          <h1
+            className={`${props.titleFormat} ${props.center} text-black relative top-10`}
+          >
+            Login
+          </h1>
+          <div className="relative flex flex-col gap-4 p-4">
+            <div className={inputCuston}>
+              <Mail className="text-gray-500 w-15 h-15" />
+              <Input
+                {...props}
+                className="h-20 flex-1"
+                placeholder="Email address"
+              />
+            </div>
+            <div className={inputCuston}>
+              <Lock className="text-gray-500 w-15 h-15" />
+              <Input
+                {...props}
+                className="h-20 flex-1"
+                placeholder="Password"
+              />
+            </div>
+            <button className="flex gap-4 underline" onClick={() => {setCheck(check === "bg-slate-200" ? props.buttonColour : "bg-slate-200")}}>
+              <div className={`h-5 w-5 ${check} flex items-center justify-center`}>
+				{check !== "bg-slate-200" && <Check className="w-4 h-4 text-white"/>}
 			</div>
-		  	<div className={inputCuston}>
-				<Lock className="text-gray-500 w-15 h-15"/>
-				<Input {...props} className="h-20 flex-1" placeholder="Password"/>
-			</div>
-			<div className="flex gap-4 underline">
-				<div className="h-5 w-5 bg-slate-200"/>
-				Remember me
-			</div>
-			<div className="relative top-10 flex flex-col p-4 gap-2">
-				<button className={`${props.buttonColour} h-20 w-50 text-white font-bold text-xl rounded-md`}>Sign in</button>
-				<button className="underline">Sign up</button>
-			</div>
-		  </div>
+              Remember me
+            </button>
+            <div className="relative top-10 flex flex-col p-4 gap-2">
+              <button
+                className={`${props.buttonColour} h-20 w-50 text-white font-bold text-xl rounded-md`}
+				onClick={() => navigate("/home")}
+              >
+                Sign in
+              </button>
+              <button className="underline" onClick={() => navigate("/sign-up")}>Sign up</button>
+            </div>
+          </div>
         </Box>
       </div>
     </div>

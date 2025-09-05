@@ -1,9 +1,10 @@
 import "./index.css";
 import { Home } from "./pages/home";
 import { Login } from "./pages/login";
-import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
 import type { comumValues } from "./types";
 import { Header } from "./pages/header";
+import { SignUp } from "./pages/signUo";
 
 function App() {
   const std: comumValues = {
@@ -22,8 +23,10 @@ function App() {
       <Header {...std}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Login {...std} />} />
+			<Route path="/" element={<Navigate to="/login" replace/>}/>
+            <Route path="/login" element={<Login {...std} />} />
             <Route path="/home" element={<Home {...std} />} />
+			<Route path="/sign-up" element={<SignUp {...std} />} />
           </Routes>
         </BrowserRouter>
       </Header>
