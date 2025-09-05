@@ -16,7 +16,7 @@ export function Login(props: comumValues) {
   return (
     <div className="flex flex-col h-screen p-4">
       <div className={`${props.center} flex-1`}>
-        <Box {...props} className="w-3/12 h-3/4 p-4 gap-20 text-black">
+        <Box {...props}>
           <h1
             className={`${props.titleFormat} ${props.center} text-black relative top-10`}
           >
