@@ -7,4 +7,6 @@ export type comumValues = {
 	logo: string;
 	box: string;
 	input: string;
+	inputCuston: string;
+	iconsCuston: string;
 };

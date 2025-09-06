@@ -15,7 +15,9 @@ function App() {
     center: "flex justify-center items-center",
     logo: "src/assets/react.svg",
 	box: "flex flex-col bg-white border border-slate-700 shadow-md rounded-md",
-	input: "bg-slate-200 border rounded-md"
+	input: "bg-slate-200 border rounded-md",
+	inputCuston: "flex items-center bg-slate-200 gap-4 p-2 shadow-md",
+	iconsCuston: "text-blue-500 w-15 h-15",
   };
 
   return (
